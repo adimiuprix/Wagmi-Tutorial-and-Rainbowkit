@@ -6,8 +6,8 @@ Selamat datang di tutorial ini! Di sini, kami akan membantu Anda membuat sebuah 
 
 <p align="left">
 ## Persiapan
-- Menggunakan [Rainbowkit](https://www.rainbowkit.com/) untuk Wallet Connectors
-- Menggunakan [wagmi.sh](https://wagmi.sh) untuk Interaksi dengan Rantai
+- Menggunakan ![Rainbowkit](https://www.rainbowkit.com/) untuk Wallet Connectors
+- Menggunakan ![wagmi.sh](https://wagmi.sh) untuk Interaksi dengan Rantai
 </p>
 
 Persiapan
