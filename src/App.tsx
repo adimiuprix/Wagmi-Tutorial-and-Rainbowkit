@@ -2,6 +2,8 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 import '@rainbow-me/rainbowkit/styles.css'
 import { useAccount } from 'wagmi'
 
+import Layout from './Layout'
+
 function App() {
     // Buat const untuk bermain dengan session
     const { isConnected } = useAccount()
@@ -14,13 +16,16 @@ function App() {
             {/* Buat session jika belum masuk */}
             {!isConnected && (
                 <>
-                <h1>Ini tampilan ketika belum login</h1>
+                    <h1>Ini tampilan ketika belum login</h1>
                 </>
             )}
             
             {/* Tampilan ketika telah masuk */}
             {isConnected && (
-                <p>Halo, selamat anda sudah masuk</p>
+                <>
+                    <p><b>Halo, selamat anda sudah masuk, berikut ini daftar yang sudah di buat</b></p>
+                    <Layout />
+                </>
             )}
         </>
     )
