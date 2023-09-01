@@ -6,13 +6,22 @@ import App from './App.tsx'
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiConfig } from 'wagmi'
 import { chains, config } from './wagmiConfig.tsx' // Untuk mengkonfigurasi wagmi, semua ada di module ini
+import { bscTestnet } from 'wagmi/chains'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <WagmiConfig config={config}>
-          <RainbowKitProvider chains={chains}>
+          
+          <RainbowKitProvider
+              // Atur behavior dari RainbowKitProvider
+              chains={chains}
+              initialChain={bscTestnet}
+              modalSize='compact'
+              showRecentTransactions={true}
+          >
             <App />
           </RainbowKitProvider>
+
         </WagmiConfig>
     </React.StrictMode>,
 )
