@@ -6,8 +6,8 @@ Selamat datang di tutorial ini! Di sini, kami akan membantu Anda membuat sebuah 
 
 <p align="left">
 ## Persiapan
-- Menggunakan <a href="https://www.rainbowkit.com/">Rainbowkit</a> untuk Wallet Connectors
-- Menggunakan <a href="https://wagmi.sh">wagmi.sh</a> untuk Interaksi dengan Rantai
+- Menggunakan <a href="https://www.rainbowkit.com/" target="_blank">Rainbowkit</a> untuk Wallet Connectors
+- Menggunakan <a href="https://wagmi.sh" target="_blank">wagmi.sh</a> untuk Interaksi dengan Rantai
 </p>
 
 Persiapan
