@@ -10,11 +10,11 @@ function App() {
         <>
             <h1>Latihan Membuat dapp sederhana</h1>
 
+            <ConnectButton />
             {/* Buat session jika belum masuk */}
             {!isConnected && (
                 <>
                 <h1>Ini tampilan ketika belum login</h1>
-                <ConnectButton />
                 </>
             )}
             
