@@ -1,27 +1,32 @@
-# React + TypeScript + Vite
+# Tutorial Pembuatan DApp Frontend dengan Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="left">
+Selamat datang di tutorial ini! Di sini, kami akan membantu Anda membuat sebuah aplikasi terdesentralisasi (DApp) frontend yang luar biasa dengan menggunakan Vite. Kami akan memandu Anda melalui langkah-langkah untuk membuat DApp yang akan terhubung ke blockchain menggunakan Rainbowkit sebagai penyedia koneksi wallet, dan juga akan menggunakan wagmi sebagai React Hooks untuk berinteraksi dengan rantai blockchain.
+</p>
 
-Currently, two official plugins are available:
+<p align="left">
+## Persiapan
+- Menggunakan [Rainbowkit](https://www.rainbowkit.com/) untuk Wallet Connectors
+- Menggunakan [wagmi.sh](https://wagmi.sh) untuk Interaksi dengan Rantai
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Persiapan
+Sebelum memulai, pastikan Anda sudah memiliki Node.js dan npm terinstal di komputer Anda.
+Jika belum, Anda dapat mengunduhnya di [Node.js](https://nodejs.org/) official website.
 
-## Expanding the ESLint configuration
+Menggunakan Rainbowkit untuk Wallet Connectors
+Rainbowkit adalah salah satu library yang akan Anda gunakan untuk menghubungkan DApp Anda dengan berbagai jenis wallet kripto. Kami akan menjelaskan langkah-langkah untuk mengintegrasikan Rainbowkit ke dalam proyek Anda.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Menggunakan Wagmi untuk Interaksi dengan Rantai
+Wagmi adalah library React Hooks yang akan mempermudah interaksi DApp Anda dengan blockchain. Anda akan belajar bagaimana menggunakan wagmi untuk mengirim transaksi dan berinteraksi dengan kontrak cerdas.
 
-- Configure the top-level `parserOptions` property like this:
+Menjalankan Aplikasi
+Setelah semua persiapan selesai, Anda dapat menjalankan aplikasi DApp Anda dengan langkah-langkah berikut:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+npm install
+
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Enjoy ngoding
