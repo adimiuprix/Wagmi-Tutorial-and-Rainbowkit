@@ -8,8 +8,20 @@ function App() {
 
     return (
         <>
-            <h1>wagmi + RainbowKit + Vite</h1>
-            <ConnectButton />
+            <h1>Latihan Membuat dapp sederhana</h1>
+
+            {/* Buat session jika belum masuk */}
+            {!isConnected && (
+                <>
+                <h1>Ini tampilan ketika belum login</h1>
+                <ConnectButton />
+                </>
+            )}
+            
+            {/* Tampilan ketika telah masuk */}
+            {isConnected && (
+                <p>Halo, selamat anda sudah masuk</p>
+            )}
         </>
     )
 }
