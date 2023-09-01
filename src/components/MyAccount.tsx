@@ -1,14 +1,15 @@
 import { useAccount } from "wagmi";
+import '../style/style.css'
 
 const MyAccount = () => {
   const { address, isConnecting, isDisconnected } = useAccount();
 
   return isConnecting ? (
-    <div>Connecting...</div>
+    <div className="card">Connecting...</div>
   ) : isDisconnected ? (
-    <div>Disconnected...</div>
+    <div className="card">Disconnected...</div>
   ) : (
-    <div>
+    <div className="card">
       <p>Tampilkan address Pengguna</p>
       {address}
     </div>
