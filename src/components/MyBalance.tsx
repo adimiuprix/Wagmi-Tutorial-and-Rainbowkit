@@ -1,9 +1,10 @@
-import { useBalance } from "wagmi";
+import { useBalance, useAccount } from "wagmi"
 import '../style/style.css'
 
 function MyBalance() {
+    const { address } = useAccount();
     const { data, isError, isLoading } = useBalance({
-        address: "0x222374582e5015621D648e1E2A17A431b8b9d4Db",
+        address: address,
         formatUnits: 'ether',
         
         //  Optional, jika property token di hilangkan akan menampilkan saldo ether
