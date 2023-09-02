@@ -4,7 +4,7 @@ import '../style/style.css'
 function MyBalance() {
     const { address } = useAccount();
     const { data, isError, isLoading } = useBalance({
-        address: address,
+        address: address as `0x${string}`,
         formatUnits: 'ether',
         
         //  Optional, jika property token di hilangkan akan menampilkan saldo ether
@@ -20,7 +20,11 @@ function MyBalance() {
 
     return(
         <div className="card">
-            Balance: {data?.formatted} {data?.symbol}
+            <p>Tampilkan saldo:</p>
+            <p>
+                Balance: {data?.formatted} {data?.symbol}
+            </p>
+            
         </div>
     )
 }
