@@ -3,6 +3,7 @@ import MyBalance from './components/MyBalance'
 import BlockNumber from './components/BlockNumber'
 import ReadContract from './components/ContractRead'
 import BacaString from './components/BacaString'
+import BacaNumber from './components/BacaNumber'
 
 const Layout = () => {
     return(
@@ -12,6 +13,7 @@ const Layout = () => {
             <BlockNumber />
             <ReadContract />
             <BacaString />
+            <BacaNumber />
         </div>
     )
 }
