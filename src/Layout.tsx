@@ -4,6 +4,7 @@ import BlockNumber from './components/BlockNumber'
 import ReadContract from './components/ContractRead'
 import BacaString from './components/BacaString'
 import BacaNumber from './components/BacaNumber'
+import BacaToken from './components/BacaToken'
 
 const Layout = () => {
     return(
@@ -14,6 +15,7 @@ const Layout = () => {
             <ReadContract />
             <BacaString />
             <BacaNumber />
+            <BacaToken />
         </div>
     )
 }
