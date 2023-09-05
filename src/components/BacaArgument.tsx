@@ -41,7 +41,13 @@ function BacaArgument() {
             <button className='calc-btn' onClick={handleFetch}>
                 {isLoading ? 'Fetching...' : 'Fetch'}
             </button>
-            {isSuccess && saldo !== null && <div>Saldo Alamat: {saldo}</div>}
+            {
+                isSuccess && 
+                saldo !== null &&
+                <div>
+                    Saldo Alamat: {saldo}
+                </div>
+            }
         </div>
     )
 }
