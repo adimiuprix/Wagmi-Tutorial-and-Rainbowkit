@@ -1,3 +1,11 @@
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .card {
   width: 300px;
   background-color: #5eaeff;
@@ -7,4 +15,31 @@
   margin: 20px;
   padding: 20px;
   display: inline-block;
+}
+
+input.inputform{
+  height: 38px;
+  color: #532dfa;
+  background-color: #52d4f8;
+  border: 1px solid #9d24f9;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: 700;
+  display: block;
+  width: 100%;
+}
+
+.calc-btn{
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, #41ae92 0%, #2a9077 100%);
+  border-radius: 20px;
+  padding: 14px 50px;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.351, 1.633);
+  width: 100%;
+  text-align: center;
 }

@@ -9,7 +9,7 @@ import BacaArgument from './components/BacaArgument'
 
 const Layout = () => {
     return(
-        <div>
+        <div className='container'>
             <MyAccount />
             <MyBalance />
             <BlockNumber />

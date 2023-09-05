@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useContractRead } from 'wagmi'
 import { SaldoContract } from '../constant/SaldoContract'
 
@@ -12,6 +12,12 @@ function BacaArgument() {
         functionName: "BacaSaldo",
         args: [walletAddress]
     })
+
+    useEffect(() => {
+        if (saldo !== null) {
+            setSaldo(null);
+        }
+    }, [walletAddress]);
 
     const handleFetch = async () => {
         try {
@@ -27,11 +33,12 @@ function BacaArgument() {
         <div className='card'>
             <div>Halo, ini argument hanya satu</div><br />
             <input
+                className='inputform'
                 onChange={(e) => setWalletAddress(e.target.value)}
                 placeholder="wallet address"
                 value={walletAddress}
             />
-            <button onClick={handleFetch}>
+            <button className='calc-btn' onClick={handleFetch}>
                 {isLoading ? 'Fetching...' : 'Fetch'}
             </button>
             {isSuccess && saldo !== null && <div>Saldo Alamat: {saldo}</div>}
