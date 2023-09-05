@@ -4,7 +4,7 @@ import { SaldoContract } from '../constant/SaldoContract'
 
 function BacaArgument() {
     const [walletAddress, setWalletAddress] = useState("")
-    const [saldo, setSaldo] = useState(null);
+    const [saldo, setSaldo] = useState<string | null>(null);
     
     const { isLoading, isSuccess, refetch } = useContractRead({
         address: "0xeFd4E38c2Cb097236e27272425d8a34d908C3019",
@@ -22,8 +22,8 @@ function BacaArgument() {
     const handleFetch = async () => {
         try {
           const hasil = await refetch();
-          const saldoValue = hasil?.data?.toString();
-          setSaldo(saldoValue);
+          const saldoValue = hasil?.data?.toString() ?? null
+          setSaldo(saldoValue)
         } catch (error) {
             setSaldo(null)
         }
