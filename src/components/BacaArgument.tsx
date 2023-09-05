@@ -21,7 +21,7 @@ function BacaArgument() {
 
     const handleFetch = async () => {
         try {
-          const hasil = await refetch();
+          const hasil = await refetch()
           const saldoValue = hasil?.data?.toString() ?? null
           setSaldo(saldoValue)
         } catch (error) {
