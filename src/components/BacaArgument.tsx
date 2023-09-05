@@ -15,7 +15,7 @@ function BacaArgument() {
 
     useEffect(() => {
         if (saldo !== null) {
-            setSaldo(null);
+            setSaldo(null)
         }
     }, [walletAddress]);
 
