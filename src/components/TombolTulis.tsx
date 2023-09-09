@@ -2,7 +2,7 @@ import { useContractWrite } from 'wagmi';
 import { BooleanContract } from '../constant/BooleanContract'
 
 function TombolTulis(){
-    const { data, isLoading, write } = useContractWrite({
+    const { isLoading, write } = useContractWrite({
         address: '0x15FA67b612b3536C8E6D22613769D7486C13903d',
         abi: BooleanContract,
         functionName: 'setState',
@@ -12,7 +12,6 @@ function TombolTulis(){
         try {
             await write();
         } catch (error) {
-            // Tangani kesalahan jika transaksi gagal
             console.error('Error:', error)
         }
     }
