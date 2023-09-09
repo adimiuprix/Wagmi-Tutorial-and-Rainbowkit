@@ -1,4 +1,4 @@
-import { useContractWrite } from 'wagmi';
+import { useContractWrite } from 'wagmi'
 import { BooleanContract } from '../constant/BooleanContract'
 
 function TombolTulis(){
@@ -24,4 +24,4 @@ function TombolTulis(){
       )
 }
 
-export default TombolTulis
+export default TombolTulis;
