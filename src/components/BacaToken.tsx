@@ -7,13 +7,13 @@ function BacaToken(){
         /* Informasi hanya baca dan di render
         kita tidak memerlukan ABI-JSON
         hanya alamat token pada jaringan */
-        address: "0xcd43dc81ebbe592be94c67ab8a09420ecb0fb6aa",
+        address: "0xCd43dC81ebbe592Be94C67AB8A09420ecB0fB6Aa",
         // sediakan property setelah address tapi optional saja
     })
 
     if (isLoading) return (<div className="card">Fetching token…</div>)
     if (isError) return (<div className="card">Error fetching token</div>)
-    
+    console.log(data)
     return (
         <div className="card">
             <p>
