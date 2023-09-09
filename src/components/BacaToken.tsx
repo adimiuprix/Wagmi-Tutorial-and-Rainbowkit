@@ -16,6 +16,7 @@ function BacaToken(){
 
     return (
         <div className="card">
+            <p>Menampilkan detail pada erc20 secara standard denagn useToken</p>
             <p>
                 Nama: {data?.name} <br />
                 Symbol: {data?.symbol} <br />

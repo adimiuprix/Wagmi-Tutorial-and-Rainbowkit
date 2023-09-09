@@ -17,14 +17,24 @@ function TombolBaca(){
 
     // Bagian kondisi "if" itu opsional, bisa dihapus jika tidak diperlukan
     if (isLoading) {
-        return <div className="card">Loading...</div>
+        return (
+            <div className="card">Loading...</div>
+        )
     }
     if (isError) {
-        return <div className="card">Error reading contract data.</div>
+        return (
+            <div className="card">
+                <p>Menampilkan data dengan tombol</p>
+                <button onClick={handleClick} className='calc-btn'>Tampilkan Pesan</button>
+                {showMessage && <p>Pesan dari contract: {IsiPesan}</p>}
+                <div>Error reading contract data.</div>
+            </div>
+        )
     }
 
     return(
         <div className="card">
+            <p>Menampilkan data dengan tombol</p>
             <button onClick={handleClick} className='calc-btn'>Tampilkan Pesan</button>
             {showMessage && <p>Pesan dari contract: {IsiPesan}</p>}
         </div>
