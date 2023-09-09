@@ -1,5 +1,5 @@
-import { useContractRead } from 'wagmi';
-import { Pesan } from "../constant/Pesan";
+import { useContractRead } from 'wagmi'
+import { Pesan } from '../constant/Pesan'
 
 function BacaString() {
     const { data: IsiPesan, isError, isLoading } = useContractRead({
@@ -11,10 +11,10 @@ function BacaString() {
 
     // Bagian kondisi "if" itu opsional, bisa di hapus jika tidak di perlukan
     if (isLoading) {
-        return <div className="card">Loading...</div>;
+        return <div className="card">Loading...</div>
     }
     if (isError) {
-        return <div className="card">Error reading contract data.</div>;
+        return <div className="card">Error reading contract data.</div>
     }
 
     return (
@@ -23,4 +23,4 @@ function BacaString() {
         </div>
     );
 }
-export default BacaString;
+export default BacaString

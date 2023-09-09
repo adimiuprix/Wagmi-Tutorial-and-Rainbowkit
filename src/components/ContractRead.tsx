@@ -1,5 +1,5 @@
-import { useContractRead } from 'wagmi';
-import { Message } from "../constant/Message";
+import { useContractRead } from 'wagmi'
+import { Message } from '../constant/Message'
 
 function ContractRead() {
     const { data: messageFromContract, isError, isLoading } = useContractRead({
@@ -11,10 +11,10 @@ function ContractRead() {
 
     // Bagian kondisi "if" itu opsional, bisa di hapus jika tidak di perlukan
     if (isLoading) {
-        return <div className="card">Loading...</div>;
+        return <div className="card">Loading...</div>
     }
     if (isError) {
-        return <div className="card">Error reading contract data.</div>;
+        return <div className="card">Error reading contract data.</div>
     }
 
     return (
@@ -23,4 +23,4 @@ function ContractRead() {
         </div>
     );
 }
-export default ContractRead;
+export default ContractRead

@@ -1,4 +1,4 @@
-import { useBlockNumber } from "wagmi";
+import { useBlockNumber } from 'wagmi'
 
 function BlockNumber(){
     const { data, isError, isLoading } = useBlockNumber({

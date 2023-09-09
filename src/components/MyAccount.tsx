@@ -1,8 +1,8 @@
-import { useAccount } from "wagmi";
+import { useAccount } from 'wagmi'
 import '../style/style.css'
 
 const MyAccount = () => {
-  const { address, isConnecting, isDisconnected } = useAccount();
+  const { address, isConnecting, isDisconnected } = useAccount()
 
   return isConnecting ? (
     <div className="card">Connecting...</div>

@@ -1,5 +1,4 @@
-import { useBalance, useAccount } from "wagmi"
-import '../style/style.css'
+import { useBalance, useAccount } from 'wagmi'
 
 function MyBalance() {
     const { address } = useAccount();

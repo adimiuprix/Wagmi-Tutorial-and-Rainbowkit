@@ -1,6 +1,6 @@
 /* Menggunakan hook useToken dapat di gunakan untuk menampilkan informasi standard erc20
    Informasi standard seperti: name, symbol, decimal, total supply */
-import { useToken } from "wagmi";   
+import { useToken } from 'wagmi'
 
 function BacaToken(){
     const { data, isError, isLoading } = useToken({

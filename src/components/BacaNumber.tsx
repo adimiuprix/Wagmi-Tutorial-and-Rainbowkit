@@ -1,6 +1,6 @@
-import { useContractRead } from 'wagmi';
-import { Storage } from "../constant/Storage";
-import { stringify } from 'viem';
+import { useContractRead } from 'wagmi'
+import { Storage } from "../constant/Storage"
+import { stringify } from 'viem'
 
 function BacaNumber() {
     const { data: Retrieve, isError, isLoading } = useContractRead({
@@ -12,10 +12,10 @@ function BacaNumber() {
 
     // Bagian kondisi "if" itu opsional, bisa di hapus jika tidak di perlukan
     if (isLoading) {
-        return <div className="card">Loading...</div>;
+        return <div className="card">Loading...</div>
     }
     if (isError) {
-        return <div className="card">Error reading contract data.</div>;
+        return <div className="card">Error reading contract data.</div>
     }
 
     return (
@@ -28,4 +28,4 @@ function BacaNumber() {
         </div>
     );
 }
-export default BacaNumber;
+export default BacaNumber
