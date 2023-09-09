@@ -18,7 +18,7 @@ function TombolTulis(){
     
     return (
         <div className='card'>
-            <button onClick={Handle}>Set State</button>
+            <button onClick={Handle} className='calc-btn'>Set State</button>
             {isLoading && <div>Checking Wallet</div>}
         </div>
       )

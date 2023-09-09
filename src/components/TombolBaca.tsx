@@ -25,7 +25,7 @@ function TombolBaca(){
 
     return(
         <div className="card">
-            <button onClick={handleClick}>Tampilkan Pesan</button>
+            <button onClick={handleClick} className='calc-btn'>Tampilkan Pesan</button>
             {showMessage && <p>Pesan dari contract: {IsiPesan}</p>}
         </div>
     )
