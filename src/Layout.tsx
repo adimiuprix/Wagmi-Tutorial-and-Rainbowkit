@@ -7,6 +7,7 @@ import BacaNumber from './components/BacaNumber'
 import BacaToken from './components/BacaToken'
 import BacaArgument from './components/BacaArgument'
 import TombolBaca from './components/TombolBaca'
+import TombolTulis from './components/TombolTulis'
 
 const Layout = () => {
     return(
@@ -20,6 +21,7 @@ const Layout = () => {
             <BacaToken />
             <BacaArgument />
             <TombolBaca />
+            <TombolTulis />
         </div>
     )
 }

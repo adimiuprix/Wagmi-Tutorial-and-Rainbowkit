@@ -13,7 +13,7 @@ function BacaToken(){
 
     if (isLoading) return (<div className="card">Fetching token…</div>)
     if (isError) return (<div className="card">Error fetching token</div>)
-    console.log(data)
+
     return (
         <div className="card">
             <p>
