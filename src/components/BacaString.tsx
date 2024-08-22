@@ -1,12 +1,11 @@
-import { useContractRead } from 'wagmi'
+import { useReadContract } from 'wagmi'
 import { Pesan } from '../constant/Pesan'
 
 function BacaString() {
-    const { data: IsiPesan, isError, isLoading } = useContractRead({
+    const { data: IsiPesan, isError, isLoading } = useReadContract({
         address: "0xFD6C396220d84C9b4698E428486523B56124ad14",
         abi: Pesan,
         functionName: "getMessage",
-        watch: true,
     })
 
     // Bagian kondisi "if" itu opsional, bisa di hapus jika tidak di perlukan

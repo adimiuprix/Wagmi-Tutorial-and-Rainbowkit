@@ -1,5 +1,5 @@
 import { parseEther } from 'viem'
-import { useContractWrite, erc20ABI } from 'wagmi'
+import { useWriteContract } from 'wagmi'
 import { ApproveContract } from '../constant/ApproveContract'
 
 function Approval () {
@@ -8,7 +8,7 @@ function Approval () {
     Membuat fungsi untuk melakukan approve tokennya dulu
     sebelum smart contract external di izinkan
     Argumentnya adalah "spender" dan "value" */
-    const { write: approveWrite } = useContractWrite({
+    const { approveWrite } = useWriteContract ({
         address: '0xCd43dC81ebbe592Be94C67AB8A09420ecB0fB6Aa',  // Address token nya
         abi: erc20ABI,
         functionName: "approve",
@@ -23,7 +23,7 @@ function Approval () {
     })
 
     // Jalankan fungsi deposits seperti biasanya
-	const { write: deposit } = useContractWrite( {
+	const { write: deposit } = useWriteContract ( {
 		address: '0x70213f1A5E2D146Db7Cb479C5651CB7112f52454',
 		abi: ApproveContract,
 		functionName: "deposit",
