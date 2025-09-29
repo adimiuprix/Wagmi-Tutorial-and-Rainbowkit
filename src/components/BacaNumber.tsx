@@ -1,13 +1,12 @@
-import { useContractRead } from 'wagmi'
+import { useReadContract } from 'wagmi'
 import { Storage } from "../constant/Storage"
 import { stringify } from 'viem'
 
 function BacaNumber() {
-    const { data: Retrieve, isError, isLoading } = useContractRead({
+    const { data: Retrieve, isError, isLoading } = useReadContract({
         address: "0xe16187983276dca45B7a014faE137347D6Fef791",
         abi: Storage,
         functionName: "value",
-        watch: true,
     })
 
     // Bagian kondisi "if" itu opsional, bisa di hapus jika tidak di perlukan

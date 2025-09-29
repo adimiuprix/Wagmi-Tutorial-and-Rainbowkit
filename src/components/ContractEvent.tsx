@@ -1,5 +1,6 @@
-import { useContractEvent } from 'wagmi'
+import { watchContractEvent } from '@wagmi/core'
 import { SimpleEventContract } from '../constant/SimpleEventContract'
+import { config } from '../wagmiConfig'
 
 function ContractEvent() {
   // Konfigurasi hook useContractEvent
@@ -7,19 +8,21 @@ function ContractEvent() {
   const contractABI = SimpleEventContract // Gantilah dengan ABI kontrak Anda
   const eventName = 'DataUpdated' // Gantilah dengan nama event yang ingin Anda pantau
 
-  // Listener yang akan dijalankan ketika event terjadi
-  const eventListener = (log: any) => {
-    console.log(log)
-    // Lakukan sesuatu dengan log event, jika diperlukan
-  }
-
   // Gunakan hook useContractEvent dengan konfigurasi di atas
-  useContractEvent({
+  const unwatch = watchContractEvent(config, {
     address: contractAddress,
     abi: contractABI,
     eventName: eventName,
-    listener: eventListener,
+    onLogs(logs) {
+      console.log('Logs:', logs)
+    },
+    onError(error) {
+      console.error(error)
+    },
   })
+
+  // nanti kalau kamu mau berhenti listen:
+  unwatch()
 
   return (
     <div>

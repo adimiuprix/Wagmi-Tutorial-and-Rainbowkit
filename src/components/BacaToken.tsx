@@ -1,27 +1,43 @@
 /* Menggunakan hook useToken dapat di gunakan untuk menampilkan informasi standard erc20
    Informasi standard seperti: name, symbol, decimal, total supply */
-import { useToken } from 'wagmi'
+import { useReadContract } from 'wagmi'
+import { erc20Abi } from 'viem'
 
 function BacaToken(){
-    const { data, isError, isLoading } = useToken({
-        /* Informasi hanya baca dan di render
-        kita tidak memerlukan ABI-JSON
-        hanya alamat token pada jaringan */
-        address: "0xCd43dC81ebbe592Be94C67AB8A09420ecB0fB6Aa",
-        // sediakan property setelah address tapi optional saja
+    const tokenAddress = "0xCd43dC81ebbe592Be94C67AB8A09420ecB0fB6Aa"
+
+    const { data: name } = useReadContract({
+        address: tokenAddress,
+        abi: erc20Abi,
+        functionName: 'name',
     })
 
-    if (isLoading) return (<div className="card">Fetching token…</div>)
-    if (isError) return (<div className="card">Error fetching token</div>)
+    const { data: symbol } = useReadContract({
+        address: tokenAddress,
+        abi: erc20Abi,
+        functionName: 'symbol',
+    })
+
+    const { data: decimals } = useReadContract({
+        address: tokenAddress,
+        abi: erc20Abi,
+        functionName: 'decimals',
+    })
+
+    const { data: totalSupply } = useReadContract({
+        address: tokenAddress,
+        abi: erc20Abi,
+        functionName: 'totalSupply',
+    })
 
     return (
         <div className="card">
             <p>Menampilkan detail pada erc20 secara standard denagn useToken</p>
             <p>
-                Nama: {data?.name} <br />
-                Symbol: {data?.symbol} <br />
-                Decimal: {data?.decimals} <br />
-                Total suply: {data?.totalSupply?.formatted} <br />
+                Nama: {name} <br />
+                Symbol: {symbol} <br />
+                Decimal: {decimals} <br />
+                Total suply: {totalSupply} <br />
             </p>
         </div>
     )

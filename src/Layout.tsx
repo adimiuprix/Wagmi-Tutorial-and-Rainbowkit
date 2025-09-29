@@ -8,8 +8,9 @@ import BacaToken from './components/BacaToken'
 import BacaArgument from './components/BacaArgument'
 import TombolBaca from './components/TombolBaca'
 import TombolTulis from './components/TombolTulis'
-// import Approval from './components/Approval'
+import Approval from './components/Approval'
 import DataArgs from './components/DataArgs'
+import Block from './components/Block'
 
 const Layout = () => {
     return(
@@ -24,8 +25,9 @@ const Layout = () => {
             <BacaArgument />
             <TombolBaca />
             <TombolTulis />
-            {/* <Approval /> */}
+            <Approval />
             <DataArgs />
+            <Block />
         </div>
     )
 }

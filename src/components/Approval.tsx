@@ -1,41 +1,48 @@
-import { parseEther } from 'viem'
+import { parseEther } from "viem"
+import { erc20Abi } from "viem"
 import { useWriteContract } from 'wagmi'
 import { ApproveContract } from '../constant/ApproveContract'
 
 function Approval () {
-    /* Membuat 2 fungsi yang akan diajalankan, pertama melakukan approval kemudia deposit
- 
-    Membuat fungsi untuk melakukan approve tokennya dulu
-    sebelum smart contract external di izinkan
-    Argumentnya adalah "spender" dan "value" */
-    const { approveWrite } = useWriteContract ({
-        address: '0xCd43dC81ebbe592Be94C67AB8A09420ecB0fB6Aa',  // Address token nya
-        abi: erc20ABI,
-        functionName: "approve",
-        args: [ '0x70213f1A5E2D146Db7Cb479C5651CB7112f52454', (parseEther('1')) ],  // Izinkan alamat spender dan masukkan nilai
-		
-        //  Jika berhasil jalankan fungsi kedua yang bernama deposits
-        onSuccess() {
-			setTimeout( () => {
-				deposit?.()
-			}, 7000 );
-		},
-    })
 
-    // Jalankan fungsi deposits seperti biasanya
-	const { write: deposit } = useWriteContract ( {
-		address: '0x70213f1A5E2D146Db7Cb479C5651CB7112f52454',
-		abi: ApproveContract,
-		functionName: "deposit",
-		 args: [ (parseEther('1')) ],  //  Masukkan argument nya
-		onSuccess( data ) {
-			console.log( data )
-		},
-	})
+	// hook wagmi versi baru → return `writeContract` function
+	const { writeContract, isPending } = useWriteContract()
+
+	function handleDeposit() {
+		try {
+		// 1. Approve token dulu
+		const approveTx = writeContract({
+			address: "0xCd43dC81ebbe592Be94C67AB8A09420ecB0fB6Aa", // token address
+			abi: erc20Abi,
+			functionName: "approve",
+			args: [
+				"0x70213f1A5E2D146Db7Cb479C5651CB7112f52454", // spender
+				parseEther("0.01"), // value
+			],
+		})
+
+		console.log("Approve tx:", approveTx)
+
+		// 2. Setelah approve, lanjut deposit
+		// (biasanya tunggu mined, tapi untuk simpel cukup lanjut)
+		const depositTx = writeContract({
+			address: "0x70213f1A5E2D146Db7Cb479C5651CB7112f52454",
+			abi: ApproveContract,
+			functionName: "deposit",
+			args: [parseEther("0.01")],
+		})
+
+		console.log("Deposit tx:", depositTx)
+		} catch (err) {
+		console.error("Error:", err)
+		}
+	}
 
 	return (
 			<div className="card">
-				<button onClick={() => approveWrite?.()} className='calc-btn'>Deposit</button>
+				<button onClick={() => handleDeposit?.()} disabled={isPending} className='calc-btn'>
+					{isPending ? "Processing..." : "Deposit"}
+				</button>
 			</div>
 	)
 }

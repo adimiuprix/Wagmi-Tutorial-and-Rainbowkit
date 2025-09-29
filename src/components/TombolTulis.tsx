@@ -1,37 +1,52 @@
-import { useContractWrite, useContractRead } from 'wagmi';
+import { useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 import { BooleanContract } from '../constant/BooleanContract'
 
-function TombolTulis(){
-    // Melakukan write pada smartcontract
-    const { isLoading, write } = useContractWrite({
-        address: '0x15FA67b612b3536C8E6D22613769D7486C13903d',
-        abi: BooleanContract,
-        functionName: 'setState',
-    })
+function TombolTulis() {
+  // 1️⃣ Baca data dari kontrak (fungsi getState)
+  const { data: Bool } = useReadContract({
+    address: '0x15FA67b612b3536C8E6D22613769D7486C13903d', // alamat kontrak
+    abi: BooleanContract, // ABI kontrak
+    functionName: 'getState', // nama fungsi di smart contract
+  })
 
-    // Menampilkan data pada smartcontract
-    const { data: Bool } = useContractRead({
-        address: "0x15FA67b612b3536C8E6D22613769D7486C13903d",
-        abi: BooleanContract,
-        functionName: "getState",
-        watch: true,
-    })
+  // 2️⃣ Hook untuk menulis ke kontrak (fungsi setState)
+  // - writeContract() digunakan untuk mengirim transaksi
+  // - data = hash transaksi (jika berhasil terkirim)
+  // - isPending = true saat wallet user lagi konfirmasi
+  const { writeContract, data: txHash, isPending } = useWriteContract()
 
-    const Handle = async () => {
-        try {
-            await write();
-        } catch (error) {
-            console.error('Error:', error)
+  // 3️⃣ Hook untuk menunggu transaksi di blockchain selesai (berhasil / gagal)
+  // - isLoading = true selama transaksi masih diproses
+  const { isLoading: isConfirming } = useWaitForTransactionReceipt({ hash: txHash })
+
+  // 4️⃣ Tampilkan UI
+  return (
+    <div className="card">
+      {/* Menampilkan nilai boolean dari kontrak */}
+      <p>Nilai boolean: {JSON.stringify(Bool)}</p>
+
+      {/* Tombol untuk mengubah state di kontrak */}
+      <button
+        onClick={() =>
+          writeContract({
+            address: '0x15FA67b612b3536C8E6D22613769D7486C13903d',
+            abi: BooleanContract,
+            functionName: 'setState',
+          })
         }
-    }
-    
-    return (
-        <div className='card'>
-            <p>Nilai boolean: {JSON.stringify(Bool)}</p>
-            <button onClick={Handle} className='calc-btn'>Set State</button>
-            {isLoading && <div>Checking Wallet</div>}
-        </div>
-      )
+        className="calc-btn"
+        disabled={isPending || isConfirming} // disable tombol saat pending/confirm
+      >
+        {/* Ubah label tombol sesuai status */}
+        {isPending
+          ? 'Mengirim...' // saat wallet terbuka & user confirm tx
+          : isConfirming
+          ? 'Menunggu konfirmasi...' // tx sedang diproses di blockchain
+          : 'Set State' // default
+        }
+      </button>
+    </div>
+  )
 }
 
-export default TombolTulis;
+export default TombolTulis

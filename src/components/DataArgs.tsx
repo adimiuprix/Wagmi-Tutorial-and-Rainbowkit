@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useContractRead } from 'wagmi'
+import { useReadContract } from 'wagmi'
 import { SaldoContract } from '../constant/SaldoContract'
 
 function DataArgs(){
     const [saldo, setSaldo] = useState<string | null>(null)
 
-    const { isLoading, isSuccess, data } = useContractRead({
+    const { isLoading, isSuccess, data } = useReadContract({
         address: "0xeFd4E38c2Cb097236e27272425d8a34d908C3019",
         abi: SaldoContract,
         functionName: "BacaSaldo",

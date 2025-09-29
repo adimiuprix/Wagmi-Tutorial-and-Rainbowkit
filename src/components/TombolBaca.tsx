@@ -1,14 +1,13 @@
 import { useState } from 'react'
-import { useContractRead } from 'wagmi'
+import { useReadContract } from 'wagmi'
 import { IngatanContract } from '../constant/IngatanContract'
 
 function TombolBaca(){
     const [showMessage, setShowMessage] = useState(false) // State untuk mengontrol tampilan pesan
-    const { data: IsiPesan, isError, isLoading } = useContractRead({
+    const { data: IsiPesan, isError, isLoading } = useReadContract({
         address: "0x6302cD20aC525DaF11E387Cb6B960DF9ec8494a7",
         abi: IngatanContract,
         functionName: "TampilkanData",
-        watch: true,
     })
 
     const handleClick = () => {
